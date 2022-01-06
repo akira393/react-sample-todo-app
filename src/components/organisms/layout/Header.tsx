@@ -1,5 +1,5 @@
+import { memo, useCallback, VFC } from "react";
 import { Box, Flex, Heading, Link, useDisclosure } from "@chakra-ui/react";
-import { memo, VFC } from "react";
 import { useHistory } from "react-router-dom";
 
 import { MenuIconButton } from "../../atoms/button/MenuIconButton";
@@ -9,9 +9,12 @@ export const Header: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
 
-  const onClickHome = () => history.push("/home");
-  const onClickUserManagement = () => history.push("/home/users");
-  const onClickSetting = () => history.push("/home/setting");
+  const onClickHome = useCallback(() => history.push("/home"), []);
+  const onClickUserManagement = useCallback(
+    () => history.push("/home/users"),
+    []
+  );
+  const onClickSetting = useCallback(() => history.push("/home/setting"), []);
 
   return (
     <>
