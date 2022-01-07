@@ -1,2 +1,2 @@
-# react-sample-todo-app
+# react-sample-user-managed-app
 Created with CodeSandbox
